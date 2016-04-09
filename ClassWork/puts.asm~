@@ -1,0 +1,27 @@
+section .bss
+section .data
+	EatMsg : db "hello baby",0
+section .text
+
+extern puts
+
+global main
+	
+main:
+	push rbp
+	push rbx
+	push rsi
+	push rdi
+	mov rbp,rsp
+
+
+	push EatMsg
+	call puts
+	add rsp,4
+	
+	mov rsp,rbp
+	pop rdi
+	pop rsi
+	pop rbx
+	pop rbp
+	ret

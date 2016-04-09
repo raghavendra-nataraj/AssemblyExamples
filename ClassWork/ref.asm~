@@ -1,0 +1,31 @@
+section .bss
+section .data
+	msg : db "dsdads",0
+section .txt
+	extern puts
+	global main
+main:
+	push ebx
+	push ebp
+	mov ebp,esp
+	push esi
+	push edi
+	mov ecx,6
+lop:
+	push ecx
+	push msg
+	call puts
+	add esp , 4
+	pop ecx
+	loopnz lop
+
+Exit:
+	pop edi
+	pop esi
+	mov esp,ebp
+	pop ebp
+	pop ebx
+	ret
+
+
+

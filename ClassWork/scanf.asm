@@ -1,0 +1,23 @@
+section .bss
+	msg resd 1	 
+	msg1 resd 1	 
+section .data
+	for : db "%d %d"
+	for1 : db "num = %d %d"
+section .text
+extern scanf
+extern printf
+	global main
+main:
+	push msg1
+	push msg
+	push for
+	call scanf
+	add esp,12
+
+	push dword [msg1]
+	push dword [msg]
+	push for1
+	call printf
+	add esp,12
+	ret

@@ -1,0 +1,7 @@
+%macro printr 4
+	mov eax,%1
+	mov ebx,%2
+	mov ecx ,%3
+	mov edx,%4
+	int 80h
+%endmacro
